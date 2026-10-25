@@ -8,7 +8,9 @@ window.SITE = {
 
   // Développement local : API Django sur le port 8000. Avant publication, remplacer par l’URL HTTPS réelle du backend.
   // Si frontend et backend partagent le même domaine, utiliser "/api".
-  apiBase: "http://127.0.0.1:8000/api",
+  apiBase: "",
+  supabaseUrl: "https://lqkwehchywqkmeycnbhb.supabase.co",
+  supabaseAnonKey: "sb_publishable_8a04JuRgGBNN3SqdjCDlgg_hC8cvzaY",
   // Le catalogue de démonstration est réservé à la prévisualisation locale.
   useDemoCatalog: false,
 
