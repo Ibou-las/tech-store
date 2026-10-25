@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /cart.html
+Disallow: /checkout.html
+Disallow: /admin.html
+Disallow: /manage.html
+
+Sitemap: https://www.techstore.sn/sitemap.xml

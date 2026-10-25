@@ -1,0 +1,1190 @@
+/* =========================================================
+   TECH STORE — THEMES (à charger EN DERNIER)
+
+   Trois styles que le visiteur choisit :
+     nuit  — sombre, électrique (encre violette + vert citron)
+     sahel — clair, chaleureux (crème + vert baobab + safran)
+     pop   — audacieux, coloré (jaune, violet, rose, contours noirs)
+
+   Le style choisi est enregistré dans le navigateur du visiteur.
+   Pour changer une couleur : modifie les variables ci-dessous.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. NUIT (style par défaut)
+   --------------------------------------------------------- */
+:root,
+:root[data-theme="nuit"] {
+    color-scheme: dark;
+
+    --bg: #0a0912;
+    --bg-rgb: 10, 9, 18;
+    --bg-soft: #0f0d18;
+    --bg-2: #100e1b;
+    --surface: #13111d;
+    --surface-2: #1a1727;
+    --surface-3: #231f35;
+    --card-a-rgb: 27, 23, 42;
+    --card-b-rgb: 14, 12, 23;
+
+    --text: #f1eefc;
+    --text-strong: #ffffff;
+    --text-2: #b6b0cc;
+    --text-3: #8d87a8;
+    --ink-rgb: 255, 255, 255;
+    --border: rgba(255, 255, 255, 0.09);
+    --border-light: rgba(255, 255, 255, 0.15);
+
+    --accent: #c5f82a;
+    --accent-rgb: 197, 248, 42;
+    --accent-2: #8b5cff;
+    --accent-2-rgb: 139, 92, 255;
+    --accent-3: #4a2bb8;
+    --accent-3-rgb: 74, 43, 184;
+    --accent-glow: #e4ff7a;
+    --on-accent: #10150a;
+    --on-accent-rgb: 16, 21, 10;
+    --shimmer: #f4ffc4;
+    --shine-rgb: 255, 255, 255;
+
+    --scrim-rgb: 5, 4, 10;
+    --shadow-rgb: 0, 0, 0;
+    --footer-start: #0a0912;
+    --footer-end: #06050c;
+    --announce-bg: linear-gradient(90deg, #2a1a6a, #5a34d6 50%, #2a1a6a);
+    --announce-fg: #ffffff;
+
+    --color-success: #4ade80;
+    --color-warning: #fbbf24;
+    --color-danger: #ff6b6b;
+    --danger-solid: #c81e3a;
+    --color-whatsapp: #25d366;
+
+    --gradient-primary: linear-gradient(135deg, #dcff5e 0%, #c5f82a 48%, #a3de0f 100%);
+    --gradient-blue: linear-gradient(135deg, #8b5cff, #c5f82a);
+    --gradient-dark: linear-gradient(135deg, #0a0912 0%, #12101d 55%, #1b1730 100%);
+
+    --shadow-small: 0 5px 20px rgba(var(--shadow-rgb), 0.28);
+    --shadow-medium: 0 12px 35px rgba(var(--shadow-rgb), 0.38);
+    --shadow-large: 0 20px 60px rgba(var(--shadow-rgb), 0.5);
+    --shadow-accent: 0 0 25px rgba(var(--accent-2-rgb), 0.3);
+    --shadow-accent-strong: 0 0 40px rgba(var(--accent-rgb), 0.28);
+    --glow: 0 0 10px rgba(var(--accent-rgb), 0.35), 0 0 30px rgba(var(--accent-2-rgb), 0.2);
+    --glow-text: 0 0 15px rgba(var(--accent-rgb), 0.4);
+
+    --font-primary: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Roboto, Arial, sans-serif;
+    --font-heading: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Roboto, Arial, sans-serif;
+
+    --logo-a: #c5f82a;
+    --logo-b: #8b5cff;
+    --logo-c: #ffffff;
+    --logo-stroke: none;
+    --logo-sw: 0;
+}
+
+
+/* ---------------------------------------------------------
+   2. SAHEL (clair, chaleureux)
+   --------------------------------------------------------- */
+:root[data-theme="sahel"] {
+    color-scheme: light;
+
+    --bg: #f7f0e3;
+    --bg-rgb: 247, 240, 227;
+    --bg-soft: #f2e9d8;
+    --bg-2: #fffaf0;
+    --surface: #fffdf8;
+    --surface-2: #f3ead8;
+    --surface-3: #e9dcc2;
+    --card-a-rgb: 255, 253, 248;
+    --card-b-rgb: 251, 245, 233;
+
+    --text: #2b241b;
+    --text-strong: #17110a;
+    --text-2: #5a4e40;
+    --text-3: #766a59;
+    --ink-rgb: 43, 36, 27;
+    --border: rgba(43, 36, 27, 0.13);
+    --border-light: rgba(43, 36, 27, 0.22);
+
+    --accent: #0b6b4d;
+    --accent-rgb: 11, 107, 77;
+    --accent-2: #f2a900;
+    --accent-2-rgb: 242, 169, 0;
+    --accent-3: #c8502a;
+    --accent-3-rgb: 200, 80, 42;
+    --accent-glow: #1fa57b;
+    --on-accent: #ffffff;
+    --on-accent-rgb: 255, 255, 255;
+    --shimmer: #d9822b;
+    --shine-rgb: 255, 255, 255;
+
+    --scrim-rgb: 30, 22, 10;
+    --shadow-rgb: 110, 80, 30;
+    --footer-start: #efe4cf;
+    --footer-end: #e6d8bd;
+    --announce-bg: linear-gradient(90deg, #084f39, #0b6b4d 50%, #084f39);
+    --announce-fg: #fff7e6;
+
+    --color-success: #1b7a3a;
+    --color-warning: #9a5a00;
+    --color-danger: #b3261e;
+    --danger-solid: #b3261e;
+
+    --gradient-primary: linear-gradient(135deg, #14855e 0%, #0b6b4d 55%, #07503a 100%);
+    --gradient-blue: linear-gradient(135deg, #f2a900, #c8502a);
+    --gradient-dark: linear-gradient(135deg, #f7f0e3 0%, #f2e9d8 100%);
+
+    --shadow-small: 0 4px 14px rgba(var(--shadow-rgb), 0.14);
+    --shadow-medium: 0 12px 30px rgba(var(--shadow-rgb), 0.18);
+    --shadow-large: 0 24px 60px rgba(var(--shadow-rgb), 0.24);
+    --shadow-accent: 0 8px 24px rgba(var(--accent-rgb), 0.22);
+    --shadow-accent-strong: 0 12px 34px rgba(var(--accent-rgb), 0.28);
+    --glow: 0 6px 18px rgba(var(--accent-rgb), 0.2);
+    --glow-text: none;
+
+    --font-primary: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Roboto, Arial, sans-serif;
+    --font-heading: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Noto Serif", serif;
+
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+    --radius-2xl: 38px;
+
+    --logo-a: #0b6b4d;
+    --logo-b: #f2a900;
+    --logo-c: #17110a;
+    --logo-stroke: none;
+    --logo-sw: 0;
+}
+
+
+/* ---------------------------------------------------------
+   3. POP (audacieux, coloré)
+   --------------------------------------------------------- */
+:root[data-theme="pop"] {
+    color-scheme: light;
+
+    --bg: #fffdf6;
+    --bg-rgb: 255, 253, 246;
+    --bg-soft: #fff8e1;
+    --bg-2: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #f4f0e4;
+    --surface-3: #e8e2cf;
+    --card-a-rgb: 255, 255, 255;
+    --card-b-rgb: 255, 255, 255;
+
+    --text: #111111;
+    --text-strong: #000000;
+    --text-2: #333333;
+    --text-3: #5f5a4e;
+    --ink-rgb: 17, 17, 17;
+    --border: #111111;
+    --border-light: #111111;
+
+    --accent: #5b2bff;
+    --accent-rgb: 91, 43, 255;
+    --accent-2: #ff2e88;
+    --accent-2-rgb: 255, 46, 136;
+    --accent-3: #ffd400;
+    --accent-3-rgb: 255, 212, 0;
+    --accent-glow: #ff7a1a;
+    --on-accent: #ffffff;
+    --on-accent-rgb: 255, 255, 255;
+    --shimmer: #ff2e88;
+    --shine-rgb: 255, 255, 255;
+
+    --scrim-rgb: 17, 17, 17;
+    --shadow-rgb: 17, 17, 17;
+    --footer-start: #ffd400;
+    --footer-end: #ffd400;
+    --announce-bg: #111111;
+    --announce-fg: #ffd400;
+
+    --color-success: #0b7a3b;
+    --color-warning: #a85a00;
+    --color-danger: #c81e3a;
+    --danger-solid: #c81e3a;
+
+    --gradient-primary: linear-gradient(0deg, #5b2bff, #5b2bff);
+    --gradient-blue: linear-gradient(0deg, #ff2e88, #ff2e88);
+    --gradient-dark: linear-gradient(0deg, #fffdf6, #fffdf6);
+
+    --shadow-small: 3px 3px 0 #111;
+    --shadow-medium: 5px 5px 0 #111;
+    --shadow-large: 8px 8px 0 #111;
+    --shadow-accent: 4px 4px 0 #111;
+    --shadow-accent-strong: 6px 6px 0 #111;
+    --glow: 3px 3px 0 #111;
+    --glow-text: none;
+
+    --font-primary: "Trebuchet MS", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    --font-heading: "Arial Black", "Segoe UI Black", "Helvetica Neue", Arial, "Roboto Black", sans-serif;
+
+    --radius-xs: 2px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
+    --radius-2xl: 14px;
+    --radius-pill: 8px;
+
+    --logo-a: #5b2bff;
+    --logo-b: #ff2e88;
+    --logo-c: #ffffff;
+    --logo-stroke: #111111;
+    --logo-sw: 2.4;
+}
+
+/* variables communes qui s'appuient sur les couleurs ci-dessus */
+:root {
+    --gradient-card: linear-gradient(145deg, rgba(var(--card-a-rgb), 0.95), rgba(var(--card-b-rgb), 0.98));
+    --gradient-glow: radial-gradient(circle, rgba(var(--accent-rgb), 0.2), transparent 65%);
+}
+
+
+/* ---------------------------------------------------------
+   4. Base commune
+   --------------------------------------------------------- */
+::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+}
+
+/* petite animation douce quand le visiteur change de style */
+html.theme-anim,
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        fill 0.35s ease,
+        stroke 0.35s ease !important;
+}
+
+
+/* ---------------------------------------------------------
+   5. Logo (prise + câble en « S ») et nom de marque
+   --------------------------------------------------------- */
+.logo-tile {
+    display: inline-grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(var(--accent-rgb), 0.1);
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
+    border-radius: 13px;
+}
+
+.logo-mark {
+    display: block;
+    width: 31px;
+    height: 31px;
+    overflow: visible;
+}
+
+.logo-name {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.logo-tagline {
+    letter-spacing: 0.05em;
+}
+
+.hero-mark {
+    width: min(58%, 340px);
+    height: auto;
+    overflow: visible;
+}
+
+@media (max-width: 640px) {
+    .logo-tile {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+    }
+
+    .logo-mark {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   6. Sélecteur de style (bouton + fenêtre de choix)
+   --------------------------------------------------------- */
+.theme-toggle {
+    position: relative;
+}
+
+.theme-toggle.pulse::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border: 2px solid var(--accent);
+    border-radius: inherit;
+    animation: themePulse 1.8s ease-out infinite;
+}
+
+@keyframes themePulse {
+    from { transform: scale(0.9); opacity: 0.9; }
+    to   { transform: scale(1.35); opacity: 0; }
+}
+
+.theme-menu {
+    position: fixed;
+    z-index: 2800;
+    width: min(330px, calc(100vw - 24px));
+    padding: 8px;
+    background: var(--bg-2);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-large);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.98);
+    transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.2, 0.9, 0.2, 1), visibility 0s linear 0.25s;
+}
+
+.theme-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.2, 0.9, 0.2, 1), visibility 0s;
+}
+
+.theme-menu-title {
+    padding: 8px 10px 6px;
+    color: var(--text-3);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px;
+    color: var(--text);
+    background: none;
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    text-align: left;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-option:hover {
+    background: rgba(var(--ink-rgb), 0.06);
+}
+
+.theme-option[aria-checked="true"] {
+    background: rgba(var(--accent-rgb), 0.08);
+    border-color: var(--accent);
+}
+
+.theme-option .swatch {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(128, 128, 128, 0.45);
+    border-radius: 12px;
+}
+
+.swatch-nuit  { background: linear-gradient(135deg, #0a0912 0 46%, #c5f82a 46% 74%, #8b5cff 74%); }
+.swatch-sahel { background: linear-gradient(135deg, #f7f0e3 0 46%, #0b6b4d 46% 74%, #f2a900 74%); }
+.swatch-pop   { background: linear-gradient(135deg, #ffd400 0 46%, #5b2bff 46% 74%, #ff2e88 74%); border: 2px solid #111 !important; }
+
+.tm-text strong {
+    display: block;
+    color: var(--text-strong);
+    font-size: 0.95rem;
+}
+
+.tm-text small {
+    display: block;
+    color: var(--text-3);
+    font-size: 0.76rem;
+}
+
+.tm-check {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin-left: auto;
+    color: var(--on-accent);
+    background: var(--accent);
+    border-radius: 50%;
+    font-size: 0.72rem;
+    font-weight: 900;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+
+.theme-option[aria-checked="true"] .tm-check {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 900px) {
+    .theme-menu {
+        top: auto !important;
+        left: 10px !important;
+        right: 10px !important;
+        bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+        width: auto;
+        transform: translateY(14px);
+    }
+
+    .theme-toggle {
+        display: none;
+    }
+
+    .bottom-nav {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   7. NUIT — détails
+   --------------------------------------------------------- */
+:root[data-theme="nuit"] .logo-name span,
+:root:not([data-theme]) .logo-name span {
+    color: var(--accent);
+}
+
+.hero-mark {
+    filter: drop-shadow(0 0 36px rgba(var(--accent-rgb), 0.3)) drop-shadow(0 0 90px rgba(var(--accent-2-rgb), 0.35));
+}
+
+
+/* ---------------------------------------------------------
+   8. SAHEL — détails (clair, doux, papier)
+   --------------------------------------------------------- */
+:root[data-theme="sahel"] body {
+    background-image: radial-gradient(rgba(var(--ink-rgb), 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+:root[data-theme="sahel"] .logo-name {
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    font-size: 1.15rem;
+}
+
+:root[data-theme="sahel"] .logo-name span {
+    color: var(--accent);
+    font-style: italic;
+}
+
+:root[data-theme="sahel"] .logo-tile {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-small);
+}
+
+:root[data-theme="sahel"] .hero-title,
+:root[data-theme="sahel"] .section-title,
+:root[data-theme="sahel"] .page-title,
+:root[data-theme="sahel"] .product-detail-title {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+:root[data-theme="sahel"] .hero-title {
+    line-height: 1.03;
+}
+
+:root[data-theme="sahel"] .btn {
+    border-radius: var(--radius-pill);
+}
+
+:root[data-theme="sahel"] .hero {
+    background:
+        radial-gradient(circle at 78% 32%, rgba(var(--accent-2-rgb), 0.4), transparent 34%),
+        radial-gradient(circle at 12% 88%, rgba(var(--accent-rgb), 0.2), transparent 36%),
+        var(--bg);
+}
+
+:root[data-theme="sahel"] .hero-canvas {
+    display: none;
+}
+
+:root[data-theme="sahel"] .hero-mark {
+    filter: drop-shadow(0 18px 30px rgba(var(--shadow-rgb), 0.3));
+}
+
+:root[data-theme="sahel"] .product-card,
+:root[data-theme="sahel"] .category-card,
+:root[data-theme="sahel"] .feature-card,
+:root[data-theme="sahel"] .testimonial-card {
+    background: var(--surface);
+}
+
+:root[data-theme="sahel"] .section-blue {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(var(--accent-2-rgb), 0.16), transparent 55%),
+        var(--bg);
+}
+
+
+/* ---------------------------------------------------------
+   9. POP — détails (contours noirs, ombres dures, couleurs vives)
+   --------------------------------------------------------- */
+:root[data-theme="pop"] ::selection {
+    background: #ffd400;
+    color: #000;
+}
+
+/* en-tête */
+:root[data-theme="pop"] .site-header {
+    background: #fff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 3px solid #111;
+}
+
+:root[data-theme="pop"] .site-header.scrolled {
+    background: #fff;
+    box-shadow: 0 4px 0 #111;
+}
+
+:root[data-theme="pop"] .logo-tile {
+    background: var(--accent-3);
+    border: 2.5px solid #111;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 #111;
+}
+
+:root[data-theme="pop"] .logo-name span {
+    display: inline-block;
+    padding: 0 0.28em;
+    color: var(--accent-3);
+    background: #111;
+    rotate: -2deg;
+}
+
+:root[data-theme="pop"] .logo-tagline {
+    color: var(--text-2);
+    font-weight: 800;
+}
+
+:root[data-theme="pop"] .nav-link {
+    border-radius: 6px;
+    font-weight: 800;
+}
+
+:root[data-theme="pop"] .nav-link:hover,
+:root[data-theme="pop"] .nav-link.active {
+    color: #000;
+    background: var(--accent-3);
+    box-shadow: inset 0 0 0 2px #111;
+}
+
+:root[data-theme="pop"] .nav-link.active::after {
+    display: none;
+}
+
+:root[data-theme="pop"] .header-action,
+:root[data-theme="pop"] .mobile-menu-button {
+    background: #fff;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0 #111;
+}
+
+:root[data-theme="pop"] .header-action:hover {
+    background: var(--accent-3);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 #111;
+}
+
+:root[data-theme="pop"] .cart-count {
+    color: #fff;
+    background: var(--accent-2);
+    border: 2px solid #111;
+    box-shadow: none;
+}
+
+/* boutons */
+:root[data-theme="pop"] .btn {
+    border: 2.5px solid #111;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 #111;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+:root[data-theme="pop"] .btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #111;
+}
+
+:root[data-theme="pop"] .btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 #111;
+}
+
+:root[data-theme="pop"] .btn-primary,
+:root[data-theme="pop"] .btn-primary:hover {
+    color: #fff;
+    background: var(--accent);
+}
+
+:root[data-theme="pop"] .btn-secondary,
+:root[data-theme="pop"] .btn-secondary:hover {
+    color: #111;
+    background: #fff;
+    border-color: #111;
+}
+
+:root[data-theme="pop"] .btn-outline,
+:root[data-theme="pop"] .btn-outline:hover {
+    color: #111;
+    background: var(--accent-3);
+    border-color: #111;
+}
+
+:root[data-theme="pop"] .btn-danger {
+    border-color: #111;
+}
+
+:root[data-theme="pop"] .btn:disabled {
+    color: #777;
+    background: #e8e2cf;
+    box-shadow: none;
+}
+
+/* cartes et panneaux */
+:root[data-theme="pop"] :is(.product-card, .feature-card, .testimonial-card, .checkout-card, .cart-item, .cart-summary, .contact-card, .filters-sidebar, .empty-state, .newsletter-box, .order-done, .search-panel, .theme-menu, .category-card) {
+    background: #fff;
+    border: 2.5px solid #111;
+    border-radius: 10px;
+    box-shadow: 6px 6px 0 #111;
+}
+
+:root[data-theme="pop"] .product-card:hover,
+:root[data-theme="pop"] .category-card:hover,
+:root[data-theme="pop"] .feature-card:hover {
+    translate: -3px -3px;
+    border-color: #111;
+    box-shadow: 9px 9px 0 #111;
+}
+
+:root[data-theme="pop"] .contact-card:hover {
+    transform: none;
+    translate: -2px -2px;
+    border-color: #111;
+}
+
+:root[data-theme="pop"] .product-card::after,
+:root[data-theme="pop"] .category-card::after,
+:root[data-theme="pop"] .category-card::before,
+:root[data-theme="pop"] .feature-card::after,
+:root[data-theme="pop"] .testimonial-card::after,
+:root[data-theme="pop"] .product-image-wrapper::after {
+    display: none;
+}
+
+:root[data-theme="pop"] .category-card:nth-child(6n + 1) { background: #e4dbff; }
+:root[data-theme="pop"] .category-card:nth-child(6n + 2) { background: #ffd6ea; }
+:root[data-theme="pop"] .category-card:nth-child(6n + 3) { background: #fff1a8; }
+:root[data-theme="pop"] .category-card:nth-child(6n + 4) { background: #d6f7a6; }
+:root[data-theme="pop"] .category-card:nth-child(6n + 5) { background: #ffe0c2; }
+:root[data-theme="pop"] .category-card:nth-child(6n + 6) { background: #c9edff; }
+
+:root[data-theme="pop"] .category-icon,
+:root[data-theme="pop"] .feature-icon,
+:root[data-theme="pop"] .empty-state-icon,
+:root[data-theme="pop"] .contact-card-icon {
+    color: #111;
+    background: #fff;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0 #111;
+    animation: none;
+}
+
+:root[data-theme="pop"] .feature-icon {
+    background: var(--accent-3);
+}
+
+:root[data-theme="pop"] .product-image-wrapper,
+:root[data-theme="pop"] .cart-item-image {
+    background: var(--surface-2);
+    border-bottom: 2.5px solid #111;
+}
+
+:root[data-theme="pop"] .cart-item-image {
+    border: 2px solid #111;
+}
+
+:root[data-theme="pop"] .product-badge {
+    color: #111;
+    background: var(--accent-3);
+    border: 2px solid #111;
+    border-radius: 6px;
+    rotate: -4deg;
+}
+
+:root[data-theme="pop"] .product-badge.new {
+    background: #b6ff3b;
+}
+
+:root[data-theme="pop"] .product-badge.sale {
+    color: #fff;
+    background: var(--accent-2);
+}
+
+:root[data-theme="pop"] .product-badge.out-of-stock {
+    color: #fff;
+    background: #111;
+}
+
+:root[data-theme="pop"] .testimonial-stars {
+    color: var(--accent-2);
+}
+
+:root[data-theme="pop"] .testimonial-avatar {
+    color: #fff;
+    border: 2px solid #111;
+}
+
+/* puces, formulaires */
+:root[data-theme="pop"] .chip {
+    color: #111;
+    background: #fff;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0 #111;
+    font-weight: 800;
+}
+
+:root[data-theme="pop"] .chip:hover {
+    border-color: #111;
+    background: var(--accent-3);
+}
+
+:root[data-theme="pop"] .chip.active {
+    color: #fff;
+    background: var(--accent);
+    border-color: #111;
+    box-shadow: 2px 2px 0 #111;
+}
+
+:root[data-theme="pop"] .chips-bar {
+    background: #fff;
+    backdrop-filter: none;
+    border: 2.5px solid #111;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0 #111;
+}
+
+:root[data-theme="pop"] :is(.form-control, .search-box input, .sort-select, .quantity-control) {
+    color: #111;
+    background: #fff;
+    border: 2.5px solid #111;
+    border-radius: 8px;
+}
+
+:root[data-theme="pop"] :is(.form-control, .search-box input):focus {
+    border-color: #111;
+    box-shadow: 4px 4px 0 var(--accent);
+}
+
+:root[data-theme="pop"] .payment-card {
+    background: #fff;
+    border: 2.5px solid #111;
+}
+
+:root[data-theme="pop"] .payment-option input:checked + .payment-card {
+    color: #000;
+    background: var(--accent-3);
+    border-color: #111;
+    box-shadow: 4px 4px 0 #111;
+}
+
+:root[data-theme="pop"] .product-main-image {
+    background: var(--surface-2);
+    border: 3px solid #111;
+    border-radius: 12px;
+    box-shadow: 8px 8px 0 #111;
+}
+
+:root[data-theme="pop"] .product-detail-price {
+    color: var(--accent);
+    text-shadow: none;
+}
+
+/* titres et sections */
+:root[data-theme="pop"] .hero-title,
+:root[data-theme="pop"] .section-title,
+:root[data-theme="pop"] .page-title,
+:root[data-theme="pop"] .product-detail-title {
+    font-weight: 900;
+    letter-spacing: -0.01em;
+}
+
+:root[data-theme="pop"] .hero-title,
+:root[data-theme="pop"] .page-title {
+    text-transform: uppercase;
+    line-height: 1.02;
+}
+
+:root[data-theme="pop"] .section-title span {
+    background: linear-gradient(transparent 55%, var(--accent-3) 55%);
+    color: var(--text-strong);
+}
+
+:root[data-theme="pop"] .section-label {
+    padding: 4px 10px;
+    color: var(--accent-3);
+    background: #111;
+    border-radius: 6px;
+    letter-spacing: 0.12em;
+}
+
+:root[data-theme="pop"] .section-label::before {
+    display: none;
+}
+
+:root[data-theme="pop"] .section-blue {
+    background: #efe8ff;
+    border-block: 3px solid #111;
+}
+
+/* héros */
+:root[data-theme="pop"] .hero {
+    background: var(--accent-3);
+    border-bottom: 3px solid #111;
+}
+
+:root[data-theme="pop"] .hero::before,
+:root[data-theme="pop"] .hero-aurora,
+:root[data-theme="pop"] .hero-canvas,
+:root[data-theme="pop"] .hero-glow {
+    display: none;
+}
+
+:root[data-theme="pop"] .hero-visual::before {
+    content: "";
+    position: absolute;
+    width: min(80%, 500px);
+    aspect-ratio: 1;
+    background: var(--accent);
+    border: 3px solid #111;
+    border-radius: 50%;
+}
+
+:root[data-theme="pop"] .hero-badge {
+    color: var(--accent-3);
+    background: #111;
+    border: 0;
+    border-radius: 6px;
+    rotate: -2deg;
+}
+
+:root[data-theme="pop"] .hero-badge::before {
+    background: var(--accent-3);
+    box-shadow: none;
+}
+
+:root[data-theme="pop"] .hero-title .w.grad {
+    padding: 0 0.16em;
+    color: var(--accent-3);
+    background: #111;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    filter: none;
+    rotate: -1.5deg;
+    animation: gradIn 0.9s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+    animation-delay: calc(0.15s + var(--i, 0) * 0.09s);
+}
+
+:root[data-theme="pop"] .hero-typed strong {
+    padding: 0 0.35em;
+    color: var(--accent);
+    background: #fff;
+    border: 2px solid #111;
+    border-radius: 6px;
+    text-shadow: none;
+}
+
+:root[data-theme="pop"] .caret {
+    background: #111;
+}
+
+:root[data-theme="pop"] .ring {
+    border-color: #111;
+}
+
+:root[data-theme="pop"] .orbit {
+    border: 2px dashed #111;
+}
+
+:root[data-theme="pop"] .chip3 > div {
+    color: #111;
+    background: #fff;
+    border: 2.5px solid #111;
+    border-radius: 12px;
+    box-shadow: 3px 3px 0 #111;
+}
+
+:root[data-theme="pop"] .hero-mark {
+    filter: drop-shadow(7px 7px 0 #111);
+}
+
+:root[data-theme="pop"] .page-hero {
+    background: #e4dbff;
+    border-bottom: 3px solid #111;
+}
+
+:root[data-theme="pop"] .page-hero::after {
+    display: none;
+}
+
+:root[data-theme="pop"] .page-title .text-gradient {
+    color: var(--accent);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    animation: none;
+}
+
+/* bandeau d'offres */
+:root[data-theme="pop"] .deal-strip {
+    background: var(--accent);
+    border-block: 3px solid #111;
+}
+
+:root[data-theme="pop"] .deal-strip::after {
+    display: none;
+}
+
+:root[data-theme="pop"] .deal-title {
+    color: #fff;
+}
+
+:root[data-theme="pop"] .deal-sub,
+:root[data-theme="pop"] .stat span {
+    color: #efe8ff;
+}
+
+:root[data-theme="pop"] .stat b {
+    color: #fff;
+    background: none;
+    -webkit-text-fill-color: #fff;
+}
+
+:root[data-theme="pop"] .cd-box {
+    background: #fff;
+    border: 2px solid #111;
+    box-shadow: 2px 2px 0 #111;
+}
+
+/* barre d'annonces, pied de page, éléments flottants */
+:root[data-theme="pop"] .announce {
+    border-bottom: 3px solid #111;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+:root[data-theme="pop"] .site-footer {
+    border-top: 3px solid #111;
+}
+
+:root[data-theme="pop"] .footer-bottom {
+    border-top: 3px solid #111;
+}
+
+:root[data-theme="pop"] .social-link {
+    color: #111;
+    background: #fff;
+    border: 2px solid #111;
+    box-shadow: 2px 2px 0 #111;
+}
+
+:root[data-theme="pop"] .whatsapp-float {
+    border: 3px solid #111;
+    box-shadow: 4px 4px 0 #111;
+}
+
+:root[data-theme="pop"] .scroll-progress {
+    height: 5px;
+    background: var(--accent-2);
+    border-bottom: 2px solid #111;
+    box-shadow: none;
+}
+
+:root[data-theme="pop"] .bottom-nav {
+    background: #fff;
+    backdrop-filter: none;
+    border: 3px solid #111;
+    border-radius: 14px;
+    box-shadow: 4px 4px 0 #111;
+}
+
+:root[data-theme="pop"] .bn-item.active {
+    color: #111;
+    background: var(--accent-3);
+    box-shadow: inset 0 0 0 2px #111;
+}
+
+:root[data-theme="pop"] .bn-item.active svg {
+    color: #111;
+    filter: none;
+}
+
+:root[data-theme="pop"] .back-top {
+    color: #111;
+    background: var(--accent-3);
+    border: 2.5px solid #111;
+    box-shadow: 3px 3px 0 #111;
+}
+
+:root[data-theme="pop"] .cart-drawer {
+    background: #fff;
+    border-left: 3px solid #111;
+    box-shadow: -8px 0 0 #111;
+}
+
+:root[data-theme="pop"] .drawer-item {
+    background: #fff;
+    border: 2px solid #111;
+}
+
+:root[data-theme="pop"] .search-item:hover,
+:root[data-theme="pop"] .search-item.is-active {
+    background: var(--accent-3);
+}
+
+:root[data-theme="pop"] .toast {
+    color: #111;
+    background: #fff;
+    border: 2.5px solid #111;
+    border-left-width: 8px;
+    box-shadow: 4px 4px 0 #111;
+}
+
+:root[data-theme="pop"] .theme-option[aria-checked="true"] {
+    background: var(--accent-3);
+    border-color: #111;
+}
+
+:root[data-theme="pop"] .tm-check {
+    color: #fff;
+    background: #111;
+}
+
+
+/* ---------------------------------------------------------
+   10. Sélecteur de style — en-tête de la fenêtre et libellé du bouton
+   --------------------------------------------------------- */
+.theme-menu-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.theme-menu-close {
+    width: 38px;
+    height: 38px;
+    margin: 2px 2px 0 0;
+    color: var(--text-strong);
+    background: rgba(var(--ink-rgb), 0.06);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.theme-toggle {
+    width: auto;
+    padding: 0 12px;
+    gap: 8px;
+}
+
+.theme-toggle-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+@media (max-width: 1180px) {
+    .theme-toggle {
+        width: 42px;
+        padding: 0;
+    }
+
+    .theme-toggle-label {
+        display: none;
+    }
+}
+
+:root[data-theme="pop"] .theme-menu-close {
+    background: #fff;
+    border: 2px solid #111;
+}
+
+
+/* ---------------------------------------------------------
+   11. Ajustements de style
+   --------------------------------------------------------- */
+
+/* SAHEL : mots mis en avant en terracotta (plus net que vert + orange) */
+:root[data-theme="sahel"] .hero-title .w.grad,
+:root[data-theme="sahel"] .page-title .text-gradient {
+    background-image: linear-gradient(100deg, #b8431f, #e0793d, #b8431f, #e0793d, #b8431f);
+}
+
+:root[data-theme="sahel"] .stat b {
+    background-image: linear-gradient(135deg, #b8431f, #e0793d);
+}
+
+/* POP : titre d'accueil un peu plus compact pour tenir sur peu de lignes */
+:root[data-theme="pop"] .hero-title {
+    font-size: clamp(2.2rem, 5vw, 4.6rem);
+}
+
+/* Lisibilité : corrections après mesure du contraste */
+:root[data-theme="pop"] .product-badge.sale {
+    background: var(--danger-solid);
+    color: #fff;
+}
+
+:root[data-theme="pop"] .testimonial-stars {
+    color: var(--accent);
+}
+
+:root[data-theme="pop"] .cart-count {
+    color: #111;
+    background: var(--accent-3);
+}
+
+:root[data-theme="sahel"] .hero-title .w.grad,
+:root[data-theme="sahel"] .page-title .text-gradient {
+    background-image: linear-gradient(100deg, #b8431f, #d2692f, #b8431f, #d2692f, #b8431f);
+}
+
+:root[data-theme="sahel"] .stat b {
+    background-image: linear-gradient(135deg, #b8431f, #d2692f);
+}

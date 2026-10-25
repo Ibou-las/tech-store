@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: techstore
+      POSTGRES_USER: techstore
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Définir POSTGRES_PASSWORD dans le .env à la racine du backend}
+    volumes:
+      - techstore_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U techstore -d techstore"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  api:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://techstore:${POSTGRES_PASSWORD}@db:5432/techstore
+      DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1,api
+      DJANGO_DEBUG: "True"
+    volumes:
+      - techstore_media:/app/media
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  techstore_media:
+  techstore_pgdata:

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="color-scheme" content="dark">
+  <title>Administration — TECH STORE</title>
+  <link rel="icon" href="images/favicon-48.png"><link rel="stylesheet" href="css/manage.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <main class="app-shell">
+    <section class="login-screen" id="loginScreen">
+      <a class="brand" href="index.html"><span class="brand-mark">TS</span><span>TECH <b>STORE</b><small>ESPACE ADMINISTRATION</small></span></a>
+      <div class="login-card">
+        <span class="eyebrow">ESPACE PRIVÉ</span><h1>Bon retour.</h1><p>Connecte-toi pour gérer la boutique, le stock et les commandes.</p>
+        <form id="loginForm"><label>Nom d’utilisateur<input id="loginUsername" autocomplete="username" required maxlength="150"></label><label>Mot de passe<input id="loginPassword" type="password" autocomplete="current-password" required></label><button class="btn btn-primary" type="submit">Se connecter <span>→</span></button><div id="loginError" class="notice error" hidden></div></form>
+        <p class="security-note">Connexion sécurisée · Accès réservé au personnel autorisé</p>
+      </div><a class="back-link" href="index.html">← Retour à la boutique</a>
+    </section>
+
+    <section class="dashboard" id="dashboard" hidden>
+      <aside class="sidebar">
+        <a class="brand side-brand" href="index.html"><span class="brand-mark">TS</span><span>TECH <b>STORE</b><small>GESTION DE BOUTIQUE</small></span></a>
+        <div class="side-caption">ESPACE DE TRAVAIL</div>
+        <nav class="side-nav" aria-label="Navigation administration">
+          <button class="nav-item active" data-view="overview"><span>◫</span>Vue d’ensemble</button>
+          <button class="nav-item" data-view="products"><span>▦</span>Produits & stock</button>
+          <button class="nav-item" data-view="orders"><span>▤</span>Commandes</button>
+          <button class="nav-item owner-only" data-view="staff"><span>♙</span>Comptes employés</button>
+        </nav>
+        <div class="sidebar-bottom"><div class="connection-dot"></div><span>API connectée</span><button id="logoutBtn" class="logout-btn">Déconnexion ↗</button></div>
+      </aside>
+      <section class="workspace">
+        <header class="topbar"><div><span class="eyebrow">TECH STORE / ADMIN</span><h1 id="viewTitle">Vue d’ensemble</h1></div><div class="user-chip"><span class="avatar" id="userAvatar">TS</span><span><b id="userName">Administrateur</b><small id="userRole">Administrateur principal</small></span></div></header>
+        <div id="globalNotice" class="notice" hidden></div>
+        <section class="view" id="view-overview"><div class="welcome-panel"><div><span class="eyebrow">TABLEAU DE BORD</span><h2>La boutique, <em>sous contrôle.</em></h2><p>Gère tes produits et suis les commandes depuis un seul espace.</p></div><div class="welcome-orbit" aria-hidden="true"><span>TS</span></div></div><div class="stat-grid"><article class="stat-card"><span>Produits actifs</span><strong id="statProducts">—</strong><small>Articles visibles sur la boutique</small></article><article class="stat-card"><span>En stock</span><strong id="statStock">—</strong><small>Unités disponibles cumulées</small></article><article class="stat-card"><span>Commandes à traiter</span><strong id="statOrders">—</strong><small>Nouvelles, confirmées ou en préparation</small></article><article class="stat-card"><span>Ruptures</span><strong id="statOut">—</strong><small>Produits actifs sans stock</small></article></div><div class="panel"><div class="panel-head"><div><span class="eyebrow">ACTIVITÉ</span><h3>Commandes récentes</h3></div><button class="btn btn-quiet" data-goto="orders">Toutes les commandes →</button></div><div id="recentOrders" class="table-wrap"><p class="muted">Chargement…</p></div></div></section>
+
+        <section class="view" id="view-products" hidden><div class="section-toolbar"><div><span class="eyebrow">CATALOGUE</span><h2>Produits & stock</h2><p class="muted">Les changements enregistrés sont immédiatement disponibles via l’API.</p></div><button class="btn btn-primary" id="addProductBtn">＋ Ajouter un produit</button></div><div class="panel"><div class="list-toolbar"><input id="productSearch" class="search-input" type="search" placeholder="Rechercher un produit, SKU…"><span id="productCount" class="muted"></span></div><div id="productsTable" class="table-wrap"><p class="muted">Chargement…</p></div></div></section>
+
+        <section class="view" id="view-orders" hidden><div class="section-toolbar"><div><span class="eyebrow">VENTES</span><h2>Commandes</h2><p class="muted">Confirme les commandes, prépare-les et suis leur livraison.</p></div><button class="btn btn-quiet" id="refreshOrders">↻ Actualiser</button></div><div class="panel"><div class="list-toolbar"><input id="orderSearch" class="search-input" type="search" placeholder="Référence, client, téléphone…"><select id="orderStatusFilter" class="field-control"><option value="">Tous les statuts</option><option value="new">Nouvelle</option><option value="confirmed">Confirmée</option><option value="preparing">En préparation</option><option value="shipped">Expédiée</option><option value="delivered">Livrée</option><option value="cancelled">Annulée</option></select></div><div id="ordersTable" class="table-wrap"><p class="muted">Chargement…</p></div></div></section>
+
+        <section class="view" id="view-staff" hidden><div class="section-toolbar"><div><span class="eyebrow">ÉQUIPE</span><h2>Comptes employés</h2><p class="muted">Crée des comptes avec des droits limités au stock ou aux commandes.</p></div></div><div class="two-col"><div class="panel"><div class="panel-head"><div><span class="eyebrow">NOUVEAU COMPTE</span><h3>Ajouter un employé</h3></div></div><form id="staffForm" class="form-grid"><label>Nom d’utilisateur<input name="username" required maxlength="150" autocomplete="off"></label><label>E-mail (facultatif)<input name="email" type="email" maxlength="254"></label><label>Mot de passe temporaire<input name="password" type="password" minlength="12" required autocomplete="new-password"><small>12 caractères minimum. Transmets-le de façon privée.</small></label><label>Rôle<select name="role" required><option value="stock">Gestionnaire de stock</option><option value="orders">Gestionnaire des commandes</option></select></label><button class="btn btn-primary" type="submit">Créer le compte</button><div id="staffFormNotice" class="notice" hidden></div></form></div><div class="panel"><div class="panel-head"><div><span class="eyebrow">ACCÈS</span><h3>Équipe actuelle</h3></div><button class="btn btn-quiet" id="refreshStaff">↻</button></div><div id="staffTable" class="table-wrap"><p class="muted">Chargement…</p></div></div></div></section>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="productDialog" class="product-dialog"><form id="productForm" enctype="multipart/form-data"><div class="dialog-head"><div><span class="eyebrow">CATALOGUE PRODUITS</span><h2 id="productDialogTitle">Ajouter un produit</h2></div><button type="button" class="icon-btn" id="closeProductDialog" aria-label="Fermer">×</button></div><input type="hidden" name="id"><div class="form-grid two"><label>Nom du produit<input name="name" required maxlength="180"></label><label>Référence / SKU<input name="sku" required maxlength="64"></label><label>Catégorie<select name="category" id="productCategory" required></select></label><label>Prix de vente (FCFA)<input name="price" type="number" min="1" step="1" required></label><label>Ancien prix (facultatif)<input name="old_price" type="number" min="1" step="1"></label><label>Quantité en stock<input name="stock" type="number" min="0" step="1" required value="0"></label><label>Badge<select name="badge"><option value="">Aucun</option><option value="new">Nouveau</option><option value="sale">Promotion</option></select></label><label class="check-label"><input name="active" type="checkbox" checked> Produit visible sur la boutique</label><label class="full">Description<textarea name="description" rows="3" maxlength="5000"></textarea></label><label class="full">Caractéristiques (une par ligne)<textarea name="specs_text" rows="3" placeholder="Ex. Intel Core i5&#10;16 Go RAM&#10;SSD 512 Go"></textarea></label><label class="full">Photo principale (JPEG, PNG ou WebP, 5 Mo max)<input name="image" type="file" accept="image/jpeg,image/png,image/webp"><small>En laissant vide, la photo actuelle est conservée lors d’une modification.</small></label></div><div id="productFormNotice" class="notice" hidden></div><div class="dialog-actions"><button type="button" class="btn btn-quiet" id="cancelProductDialog">Annuler</button><button class="btn btn-primary" type="submit">Enregistrer le produit</button></div></form></dialog>
+  <dialog id="orderDialog" class="product-dialog"><div class="dialog-head"><div><span class="eyebrow">DÉTAILS DE COMMANDE</span><h2 id="orderDialogTitle">Commande</h2></div><button type="button" class="icon-btn" id="closeOrderDialog" aria-label="Fermer">×</button></div><div id="orderDialogBody"></div><div class="dialog-actions"><button type="button" class="btn btn-quiet" id="closeOrderDialogBottom">Fermer</button></div></dialog>
+  <script src="js/config.js"></script><script src="js/manage.js"></script>
+</body></html>
