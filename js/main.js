@@ -67,57 +67,54 @@ async function loadProducts(forceRefresh = false) {
   if (PRODUCTS_CACHE && !forceRefresh) return PRODUCTS_CACHE;
   const S = window.SITE || {};
   let raw = null;
-  if (S.apiBase) {
+  if (window.supabase && S.supabaseUrl && S.supabaseAnonKey) {
+    try {
+      const client = window.supabase.createClient(S.supabaseUrl, S.supabaseAnonKey);
+      const { data, error } = await client.from("products")
+        .select("id,sku,name,category_id,price,old_price,stock,badge,description,specs,images,image_url,active,categories(slug,name)")
+        .eq("active", true).order("created_at", { ascending: false });
+      if (error) throw error;
+      raw = (data || []).map((p) => ({
+        id: String(p.id), name: p.name, category: p.categories?.slug || "accessoires",
+        categoryLabel: p.categories?.name || categoryLabel(p.categories?.slug || "accessoires"),
+        price: Number(p.price), oldPrice: p.old_price == null ? null : Number(p.old_price),
+        badge: p.badge || "", stock: Number(p.stock), description: p.description || "",
+        specs: Array.isArray(p.specs) ? p.specs : [],
+        images: Array.isArray(p.images) ? p.images : (p.image_url ? [p.image_url] : []),
+        image: (Array.isArray(p.images) && p.images[0]) || p.image_url || ""
+      }));
+    } catch (error) {
+      console.error("Supabase catalogue:", error);
+      if (!S.useDemoCatalog) throw error;
+    }
+  } else if (S.apiBase) {
     try {
       const response = await fetch(`${String(S.apiBase).replace(/\/$/, "")}/products/`, { headers: { Accept: "application/json" } });
       if (!response.ok) throw new Error(`API catalogue : HTTP ${response.status}`);
       const payload = await response.json();
       const apiProducts = Array.isArray(payload) ? payload : (Array.isArray(payload.results) ? payload.results : null);
       if (!apiProducts) throw new Error("Format de réponse API inattendu.");
-      raw = apiProducts.map((p) => ({
-        id: String(p.id), name: p.name, category: p.category_slug || p.category_key || "accessoires",
-        categoryLabel: p.category_name || categoryLabel(p.category_slug || "accessoires"),
-        price: Number(p.price), oldPrice: p.old_price == null ? null : Number(p.old_price),
-        badge: p.badge || "", stock: Number(p.stock), description: p.description || "",
-        specs: Array.isArray(p.specs) ? p.specs : [], images: p.image_url ? [p.image_url] : [], image: p.image_url || ""
-      }));
-    } catch (error) {
-      console.error(error);
-      if (!S.useDemoCatalog) throw error;
-      console.warn("API indisponible : utilisation du catalogue de démonstration local.");
-    }
+      raw = apiProducts.map((p) => ({ id: String(p.id), name: p.name, category: p.category_slug || p.category_key || "accessoires",
+        categoryLabel: p.category_name || categoryLabel(p.category_slug || "accessoires"), price: Number(p.price),
+        oldPrice: p.old_price == null ? null : Number(p.old_price), badge: p.badge || "", stock: Number(p.stock),
+        description: p.description || "", specs: Array.isArray(p.specs) ? p.specs : [], images: p.image_url ? [p.image_url] : [], image: p.image_url || "" }));
+    } catch (error) { console.error(error); if (!S.useDemoCatalog) throw error; }
   }
   if (!raw) raw = window.TECHSTORE_PRODUCTS;
-  if (!Array.isArray(raw)) throw new Error("Catalogue introuvable : configure l’API ou vérifie data/products.js");
-
+  if (!Array.isArray(raw)) throw new Error("Catalogue introuvable : vérifie la connexion Supabase ou data/products.js");
   const seen = new Set();
-  PRODUCTS_CACHE = raw
-    .filter((p) => {
-      const ok = p && typeof p.id === "string" && p.id && typeof p.name === "string" && p.name && Number.isFinite(p.price) && p.price >= 0;
-      if (!ok) console.warn("Produit ignoré (id, name ou price invalide) :", p);
-      else if (seen.has(p.id)) {
-        console.warn("Produit ignoré (id en double) :", p.id);
-        return false;
-      }
-      if (ok) seen.add(p.id);
-      return ok;
-    })
-    .map((p) => {
-      // photos : « images » (liste) ou, pour les anciens catalogues, « image » (une seule)
-      const images = (Array.isArray(p.images) ? p.images : p.image ? [p.image] : []).filter((x) => typeof x === "string" && x);
-      return {
-        category: "accessoires",
-        description: "",
-        badge: "",
-        oldPrice: null,
-        ...p,
-        images,
-        image: images[0] || "",
-        categoryLabel: p.categoryLabel || categoryLabel(p.category),
-        specs: Array.isArray(p.specs) ? p.specs : [],
-        stock: Number.isFinite(p.stock) ? p.stock : null, // null = pas de limite
-      };
-    });
+  PRODUCTS_CACHE = raw.filter((p) => {
+    const ok = p && typeof p.id === "string" && p.id && typeof p.name === "string" && p.name && Number.isFinite(p.price) && p.price >= 0;
+    if (!ok) console.warn("Produit ignoré (id, name ou price invalide) :", p);
+    else if (seen.has(p.id)) { console.warn("Produit ignoré (id en double) :", p.id); return false; }
+    if (ok) seen.add(p.id);
+    return ok;
+  }).map((p) => {
+    const images = (Array.isArray(p.images) ? p.images : p.image ? [p.image] : []).filter((x) => typeof x === "string" && x);
+    return { category: "accessoires", description: "", badge: "", oldPrice: null, ...p, images, image: images[0] || "",
+      categoryLabel: p.categoryLabel || categoryLabel(p.category), specs: Array.isArray(p.specs) ? p.specs : [],
+      stock: Number.isFinite(p.stock) ? p.stock : null };
+  });
   return PRODUCTS_CACHE;
 }
 
